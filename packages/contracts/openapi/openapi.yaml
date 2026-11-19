@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: F7 API
+  version: 0.1.0
+servers:
+  - url: /api/v1
+paths:
+  /health/live:
+    get:
+      operationId: getLiveness
+      summary: Check whether the API is serving requests
+      security: []
+      responses:
+        '200':
+          description: API is live
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Live' }
+  /health/ready:
+    get:
+      operationId: getReadiness
+      summary: Check whether the API can reach PostgreSQL
+      security: []
+      responses:
+        '200':
+          description: PostgreSQL accepts a round trip
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Ready' }
+        '503':
+          description: PostgreSQL unavailable or probe timed out
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Unavailable' }
+components:
+  schemas:
+    Live:
+      type: object
+      additionalProperties: false
+      required: [status]
+      properties:
+        status: { type: string, enum: [live] }
+    Ready:
+      type: object
+      additionalProperties: false
+      required: [status]
+      properties:
+        status: { type: string, enum: [ready] }
+    Unavailable:
+      type: object
+      additionalProperties: false
+      required: [status]
+      properties:
+        status: { type: string, enum: [unavailable] }

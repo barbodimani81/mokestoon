@@ -1,0 +1,105 @@
+:root {
+  color-scheme: light;
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: #272e23;
+  background: #f5f0e4;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0 max(5vw, env(safe-area-inset-right)) env(safe-area-inset-bottom)
+    max(5vw, env(safe-area-inset-left));
+}
+header,
+main {
+  max-width: 58rem;
+  margin: auto;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid #bfbba9;
+  font-weight: 650;
+}
+.wordmark {
+  background: #344732;
+  color: #fff9df;
+  padding: 0.15em 0.35em;
+  font:
+    800 1.45rem Georgia,
+    serif;
+}
+h1,
+h2 {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+h1 {
+  font-size: clamp(2.35rem, 7vw, 4.25rem);
+  margin: 0.55em 0 0.35em;
+}
+.proof {
+  background: #fffcf4;
+  border: 1px solid #aaa58f;
+}
+.stage {
+  background: #e6deca;
+  width: 100%;
+  height: clamp(10rem, 32vh, 19rem);
+  overflow: hidden;
+}
+.stage canvas {
+  display: block;
+}
+.caption {
+  padding: 1rem 1.2rem 0.75rem;
+}
+h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+p {
+  margin: 0.2rem 0;
+}
+.roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0 1.2rem 1.15rem;
+}
+button {
+  touch-action: manipulation;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  color: #313a2f;
+  border: 1px solid #aba995;
+  border-radius: 0.3rem;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+button[aria-pressed="true"] {
+  color: white;
+  background: #354934;
+  border-color: #354934;
+}
+button:focus-visible {
+  outline: 3px solid #9a4923;
+  outline-offset: 2px;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  padding: 0.9rem 0;
+}
+footer strong {
+  margin-left: 0.25rem;
+}

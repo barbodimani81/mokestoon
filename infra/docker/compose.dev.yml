@@ -1,0 +1,20 @@
+name: f7-local
+services:
+  db:
+    image: postgres:17-alpine@sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b
+    environment:
+      POSTGRES_USER: ${PGUSER:-f7}
+      POSTGRES_DB: ${PGDATABASE:-f7}
+      POSTGRES_PASSWORD: ${PGPASSWORD:?Run make init to create local credentials}
+      TZ: UTC
+    ports:
+      - "127.0.0.1:${PGPORT:-55432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  pgdata:

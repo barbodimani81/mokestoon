@@ -21,13 +21,12 @@ Never share credentials or databases across staging and production.
 
 ## 3. Required configuration
 
-Create `.env.example` with names and safe placeholders only. Expected variables include:
+For the implemented M0 local environment, use the root `.env.example` and the setup commands in the README. The API and migration tool read PostgreSQL's standard `PG*` connection variables. `make init` generates the password locally. The following application, session and logging settings describe the broader release target:
 
 ```dotenv
 APP_ENV=local
 HTTP_ADDR=:8080
 PUBLIC_WEB_ORIGIN=http://localhost:5173
-DATABASE_URL=postgres://f7:f7@localhost:5432/f7?sslmode=disable
 SESSION_COOKIE_NAME=f7_session
 SESSION_COOKIE_SECURE=false
 SESSION_COOKIE_SAMESITE=lax
@@ -36,7 +35,7 @@ REFRESH_SESSION_TTL=720h
 LOG_LEVEL=debug
 ```
 
-Production must use injected secrets and secure cookies. Database credentials above are local-only examples and must never be copied to production.
+Production must use injected secrets and secure cookies.
 
 ## 4. Container and local development
 

@@ -33,6 +33,25 @@ Do not place private reference photographs in `runtime/` or publish them through
 
 ## 3. Character sprite requirements
 
+### Replacing an M0 preview tile
+
+`assets/manifests/characters.ts` currently declares a temporary letter tile for each stable character ID. To preview an approved sheet, place a uniformly sliced PNG under `assets/runtime/spritesheets/`. Use a lowercase filename containing letters, digits, underscores or hyphens. Keep the character ID and name, and replace its `art` field with a `spritesheet` entry. For example, a one-frame sheet with a 32 × 48 frame would use the following metadata. Set the actual dimensions, anchors and ranges from the approved sheet.
+
+```ts
+art: {
+  kind: "spritesheet",
+  file: "barbod_idle.png",
+  frameWidth: 32,
+  frameHeight: 48,
+  origin: [0.5, 1],
+  animations: [
+    { action: "idle", direction: "south", firstFrame: 0, lastFrame: 0, frameMs: 200, loop: true },
+  ],
+}
+```
+
+The loader uses zero-based inclusive frame ranges, normalized origins and stable keys such as `barbod.idle.south`. The preview plays the south-facing idle clip. Use the manifest's four direction values for additional clips. Invalid metadata or a missing declared sheet produces a preview error. Rebuild after changing an entry. The preview starts with audio disabled and loads no tracks.
+
 Minimum first pass per character:
 - idle animation;
 - four-direction walk (or a documented reduced-direction solution if the top-down camera and map make four directions sufficient);

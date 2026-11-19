@@ -49,6 +49,12 @@ This document is the single register for missing product-owner decisions. Update
 
 ## Decision log
 
+### M0 engineering defaults, 2026-11-19
+
+- The local web package uses npm with a committed lockfile. The API uses the Go standard HTTP router and pgx. These choices implement the documented modules without a production provider dependency.
+- Local PostgreSQL uses a loopback port and a generated password. The API, Compose and migration CLI share the same PostgreSQL environment settings. The first versioned migration creates an empty `f7` namespace. Account and ledger tables are scheduled for their respective milestones.
+- Responsive asset preview dimensions are independent of the future map resolution. Named letter tiles identify missing art. Camera scale, geometry, sprite approvals and music rights retain their open status.
+
 When resolving an item, append:
 
 ```text

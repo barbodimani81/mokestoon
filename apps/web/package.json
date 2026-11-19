@@ -1,0 +1,29 @@
+{
+  "name": "@f7/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.13.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "fmt": "biome format --write .",
+    "lint": "biome ci . && tsc --noEmit && npm run contracts:check",
+    "test": "node --test tests/unit/*.test.ts",
+    "contracts": "openapi-typescript ../../packages/contracts/openapi/openapi.yaml -o src/api/schema.d.ts",
+    "contracts:check": "npm run contracts -- --check"
+  },
+  "dependencies": {
+    "phaser": "3.90.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.8",
+    "@playwright/test": "1.65.1",
+    "@types/node": "24.19.2",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.8"
+  }
+}

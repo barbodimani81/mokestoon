@@ -32,10 +32,13 @@ This index defines how to read and maintain the F7 implementation specification.
 | `14-IMPLEMENTATION-ROADMAP.md` | Dependency-ordered delivery milestones |
 | `15-AGENT-INSTRUCTIONS.md` | Execution protocol for autonomous coding agents |
 | `16-OPEN-DECISIONS.md` | Missing owner decisions and assumptions |
+| `17-GAMEPLAY-REVISION-TODO.md` | Confirmed owner revision of 2026-11-20. Governs station interactions, Persian UI, character visibility and the Faaz loop. |
+| `18-ACTIVITY-CATALOG-BRAINSTORM.md` | Per-station candidate status, prerequisites, effort and owner review. |
+| `reviews/gameplay-revision-audit.md` | Observed baseline, verification evidence and remaining gaps. |
 
 ## Precedence
 
-1. Explicit product-owner corrections in conversation and confirmed requirements in this specification.
+1. Explicit product-owner corrections and confirmed requirements. Revision 17 supersedes older conflicting interaction and UI specifications. Catalog brainstorms retain their individual approval status.
 2. This master index for document precedence and status semantics.
 3. Domain-specific specification for its own subject, provided it does not contradict a confirmed decision.
 4. Engineering defaults in architecture/API/database docs.
@@ -61,7 +64,7 @@ If a newer product-owner decision changes an earlier one, update every affected 
 
 ## Known but not fully specified
 
-- Floor-plan geometry, dimensions, door/window coordinates, furniture positions, navigation nodes and master-bathroom position.
+- Exact physical scale and final artwork for the traced apartment. The supplied plan locates the master bathroom, and the owner confirmed the balcony and kitchen entrance.
 - Exact art assets, animation sheets and final character portraits.
 - Exact economy prices, reward quantities and progression pacing.
 - Exact login provider and production deployment provider/domain.

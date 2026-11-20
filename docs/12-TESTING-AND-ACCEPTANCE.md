@@ -93,3 +93,7 @@ A release candidate must have:
 ## 7. Test data
 
 Use synthetic test accounts and deterministic fixtures. Never use actual passwords or private personal data in tests. Keep test audio and images licensed/original or generated for the project.
+
+## Gameplay revision acceptance
+
+Use a fresh browser context. Verify a bubble above Parsa, single eligible station, native popup, actual walk and preparation, carry, cooling across reload, fridge readiness and a separately commanded eating stage. Verify Mahan’s distinct cigarette/IQOS options, arrival, animation and single terminal receipt. Close with Back/Escape, cancel and try an invalid station. Check RTL, font loading, fixed camera after rotation, visible and selectable bodies and adequate contrast. Verify local storage, server backup conflicts, real email sign-in, leaderboard states, sound without a music file, offline reward replay, locked/insufficient purchases, explicit purchase confirmation and retained ownership. Compare checks and limitations in reviews/gameplay-revision-audit.md.

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f0e4" />
+  <title>F7 · {{CharacterAssets}}</title>
+</head>
+<body>
+  <header><strong class="wordmark" dir="ltr">F7</strong><span>{{Apartment}} F7</span><a href="./" class="back-link">{{TheApartment}}</a></header>
+  <main>
+    <h1>{{CharacterAssets}}</h1>
+    <section class="proof" aria-label="{{CharacterAssetPreview}}">
+      <div class="stage" id="stage" aria-hidden="true"></div>
+      <div class="caption"><h2 id="name">{{Preview}}</h2><p id="art-status" role="status">{{LoadingAssets}}</p></div>
+      <label class="motion-control">{{Pose}} <select id="preview-motion" disabled></select></label>
+      <div class="roster" id="roster" role="group" aria-label="{{ChooseACharacter}}"></div>
+    </section>
+    <footer><p>{{ApiConnection}} <strong id="connection" role="status">{{Checking}}</strong></p><button type="button" id="retry">{{CheckConnection}}</button></footer>
+  </main>
+  <script type="module" src="/src/app/main.ts"></script>
+</body>
+</html>

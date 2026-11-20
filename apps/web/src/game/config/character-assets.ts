@@ -17,9 +17,11 @@ export interface AnimationClip {
 }
 
 export interface SpriteSheet {
-  kind: "spritesheet";
+  kind: "spritesheet" | "placeholder";
   /** PNG filename relative to assets/runtime/spritesheets. */
   file: string;
+  /** Sampling for this artwork. Pixel sheets default to nearest. */
+  sampling?: "linear" | "nearest";
   frameWidth: number;
   frameHeight: number;
   origin: [number, number];
@@ -28,7 +30,7 @@ export interface SpriteSheet {
 
 export interface CharacterAsset {
   name: string;
-  art: { kind: "placeholder" } | SpriteSheet;
+  art: SpriteSheet;
 }
 
 export function clipKey(id: CharacterId, clip: AnimationClip): string {
@@ -39,6 +41,9 @@ export function validateSheet(sheet: SpriteSheet): void {
   const positive = (n: number) => Number.isSafeInteger(n) && n > 0;
   if (
     !/^[a-z0-9_-]+\.png$/.test(sheet.file) ||
+    (sheet.sampling !== undefined &&
+      sheet.sampling !== "nearest" &&
+      sheet.sampling !== "linear") ||
     !positive(sheet.frameWidth) ||
     !positive(sheet.frameHeight) ||
     !sheet.origin.every((n) => Number.isFinite(n) && n >= 0 && n <= 1)
@@ -51,6 +56,7 @@ export function validateSheet(sheet: SpriteSheet): void {
     if (
       keys.has(key) ||
       !/^[a-z0-9_]+$/.test(clip.action) ||
+      !["north", "south", "east", "west"].includes(clip.direction) ||
       !positive(clip.frameMs) ||
       !Number.isSafeInteger(clip.firstFrame) ||
       clip.firstFrame < 0 ||

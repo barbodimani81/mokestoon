@@ -16,43 +16,34 @@ Required persistent indicators:
 - Current music/track and vibe indicator.
 - Settings/audio control.
 - Progression/unlock access.
-- Request indicators attached to characters or in a compact request list.
+- A request bubble above the requester and a compact readable status line.
 
 Show pending/unconfirmed status when rewards are queued offline. Never display a local optimistic reward as definitively server-confirmed.
 
 ## 3. Character selection
 
-On tapping a character:
-- Highlight the selected character without hiding the map.
-- Show name, current mood/activity and active request.
-- Show only currently valid action choices.
-- Provide a clear close/back action.
-- If the character is busy, explain whether the action can queue, interrupt or is unavailable.
+**Confirmed on 2026-11-20.** Tap a friend, their name or the above-head request to enter station selection. Highlight only stations with eligible options. Keep the selected friend’s ring and name visible. Cancel returns to the apartment.
 
-Context menus must avoid overlapping the selected character and must reposition near screen edges.
+## 4. Station and item selection
 
-## 4. Object selection
+Tapping a station opens a modal headed with the friend and station names. Use the same popup for one choice or many. Show a Persian label, pictogram and any prerequisites. A tap on an item validates it and starts navigation. Back/Escape dismisses the popup with selection intact. The modal owns focus, and the map underneath receives no taps. The shop has its own catalog, item details and explicit Faaz purchase confirmation.
 
-On tapping an interactable object:
-- Display object name and locked/available state.
-- Show required unlock cost or prerequisite when locked.
-- Show available actions and eligible characters.
-- Explain why an action is unavailable (e.g. character busy, no path, item locked).
+The shipped interface uses fa-IR, Persian numerals, right-to-left text and self-hosted Vazirmatn. Map positions and facing directions retain the supplied orientation. F7, email addresses, user-chosen names and technical identifiers retain their spelling. A dismissible first-session guide and a replay button teach the same real interaction.
 
 ## 5. Requests
 
 - Use a visible icon and short text label.
 - Use a timer/progress ring or clear urgency indicator; do not rely on color alone.
 - Keep the number of simultaneous prominent request cards bounded.
-- Allow tapping a request to focus/highlight its character and relevant object.
+- Tapping the bubble selects the friend; the player still chooses the station and item.
 - Expired requests should visibly resolve into a reaction/state change.
 
 ## 6. Menus and screens
 
 Minimum screens/panels:
 - Main game HUD.
-- Character contextual action panel.
-- Object contextual action panel.
+- Character selection and status.
+- Station item popup.
 - Unlock/catalog panel.
 - Music and vibe panel.
 - Pause/settings panel.

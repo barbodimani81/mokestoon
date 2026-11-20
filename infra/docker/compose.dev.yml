@@ -1,5 +1,16 @@
 name: f7-local
 services:
+  mailpit:
+    image: axllent/mailpit@sha256:23a2ef85bc50853ab3093645d1d64679afd8887e89da5e48a88940c172591a4e
+    profiles: [accounts]
+    ports:
+      - "127.0.0.1:${F7_MAIL_UI_PORT:-58025}:8025"
+      - "127.0.0.1:${F7_MAIL_SMTP_PORT:-51025}:1025"
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
   db:
     image: postgres:17-alpine@sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b
     environment:

@@ -152,3 +152,13 @@ Do not put Faaz or F7 Score totals in save payload as the authoritative value. L
 ## 7. Migration sequence
 
 Start with users/sessions/profiles, then saves, catalog/unlocks, ledgers/event receipts, then groups if approved. Each migration must have a clear rollback strategy and be tested against an empty database and the previous migration state.
+
+## Implemented local persistence
+
+Migration 000002 creates provider-neutral player IDs, expiring development sessions with hashed tokens, receipts, ledgers and unlock ownership. The receipt records the intent and timestamp for both associated ledger entries. Development catalog values load from the version-controlled playtest configuration. Migration 000003 creates one versioned JSONB checkpoint per player. An insert can create an empty slot. An update must match its version, and concurrent writers compete in PostgreSQL. Purchases and rewards read their authority from the ledgers.
+
+Migration 000004 adds `email_accounts`, `player_profiles`, `account_sessions`, `email_challenges` and `auth_limits`. Existing guest records retain their identifiers. Verification can promote the same guest once the verifying browser demonstrates ownership of the originating session. Password reset and session revocation occur in the same transaction. Access and refresh credentials are hashed. A separate revocation hash allows logout to win a concurrent refresh.
+
+## Jelly checkpoints · 2026-11-20
+
+The existing JSON checkpoint retains the request UUID, current activity, phase and an optional absolute readyAt simulation tick. Cooling and ready phases require Parsa’s jelly-eating stage and its readiness timestamp. Interrupted work releases reservations and reoffers the current stage. Restoring a cooling output keeps its deadline. Old version-one documents remain readable. The schema change is additive within the existing JSONB column and needs no SQL migration. Pending receipts and balances stay outside the gameplay snapshot.

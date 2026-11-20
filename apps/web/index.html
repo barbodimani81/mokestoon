@@ -1,22 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="fa-IR" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f5f0e4" />
-  <title>F7 · Character assets</title>
+  <title>F7 · {{TheApartment}}</title>
 </head>
-<body>
-  <header><strong class="wordmark">F7</strong><span>Apartment F7</span></header>
-  <main>
-    <h1>Character assets</h1>
-    <section class="proof" aria-label="Character asset preview">
-      <div class="stage" id="stage" aria-hidden="true"></div>
-      <div class="caption"><h2 id="name">Preview</h2><p id="art-status" role="status">Loading assets…</p></div>
-      <div class="roster" id="roster" role="group" aria-label="Choose a character"></div>
-    </section>
-    <footer><p>API connection <strong id="connection" role="status">Checking…</strong></p><button type="button" id="retry">Check connection</button></footer>
+<body class="map-page">
+  <header class="map-header">
+    <strong class="wordmark" dir="ltr">F7</strong><h1>{{TheApartment}}</h1>
+    <a id="account-link" href="./account.html" hidden>{{Account}}</a>
+    <a href="./characters.html">{{CharacterAssets}}</a>
+    <details id="sound-settings" hidden>
+      <summary aria-label="{{SoundSettings}}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h4l5-4v14l-5-4H3z M16 8c3 2 3 6 0 8 M19 5c5 4 5 10 0 14"/></svg><span>{{Sound}}</span></summary>
+      <div class="sound-panel">
+        <strong data-track></strong>
+        <p data-sound-status aria-live="polite"></p>
+        <button type="button" data-sound-toggle>{{StartSound}}</button>
+        <button type="button" data-retry-music hidden>{{RetryMusic}}</button>
+        <label>{{MasterVolume}} <input type="range" name="master" min="0" max="100"></label>
+        <label>{{MusicVolume}} <input type="range" name="music" min="0" max="100"></label>
+        <label>{{AlertVolume}} <input type="range" name="alerts" min="0" max="100"></label>
+      </div>
+    </details>
+  </header>
+  <main class="map-view">
+    <div id="apartment" role="group" aria-label="{{TopDownApartmentPlanTheBalconyIsUpperLeftTheKitchenLowerLeftTheLivingRoomIn}}"></div>
+    <p id="map-status" role="status">{{LoadingFloorPlan}}</p>
   </main>
-  <script type="module" src="/src/app/main.ts"></script>
+  <footer class="map-tools">
+    <section id="residents" aria-label="{{CharacterControls}}"></section>
+    <section id="progression" aria-label="{{Progression}}" hidden></section>
+    <section id="backups" aria-label="{{ApartmentBackup}}" hidden></section>
+    <small id="marker-note" hidden>{{CharacterSpritesAreTemporary}}</small>
+    <span id="save-notice" role="alert"></span>
+    <button id="geometry" type="button" aria-pressed="false" aria-controls="map-legend apartment" disabled>{{MapGeometry}}</button>
+    <ul id="map-legend" aria-label="{{GeometryLegend}}" hidden>
+      <li class="blocked">{{WallsAmpObstacles}}</li><li class="door">{{Doorways}}</li><li class="anchor">{{Anchors}}</li>
+    </ul>
+  </footer>
+  <script type="module" src="/src/app/apartment.ts"></script>
 </body>
 </html>

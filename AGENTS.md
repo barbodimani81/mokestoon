@@ -15,6 +15,7 @@ Read in this order:
 6. `docs/06-TECHNICAL-ARCHITECTURE.md`
 7. `docs/07-DATABASE-SCHEMA.md` and `docs/08-API-CONTRACTS.md`
 8. `docs/14-IMPLEMENTATION-ROADMAP.md`
+9. `docs/17-GAMEPLAY-REVISION-TODO.md` in full. The owner’s 2026-11-20 revision supersedes conflicting interaction, UI, language and reward-flow requirements. Consult `docs/18-ACTIVITY-CATALOG-BRAINSTORM.md` for candidate status.
 
 Consult the remaining documents when implementing their domain.
 

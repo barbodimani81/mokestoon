@@ -138,3 +138,7 @@ Never copy production data into local/test environments by default.
 ## 11. Explicitly excluded infrastructure
 
 No mandatory Kubernetes, Redis, NATS, event broker, service mesh or separate leaderboard service for first release. Add only after load or operational evidence justifies it.
+
+## Station command and presentation boundaries
+
+The DOM renders accessible map targets, native dialogs and Persian UI. Phaser positions those targets in display coordinates after placing the five figures and interpolates their foot positions independently of collision footprints. The station registry maps stable IDs to existing Tiled objects and activities. The simulation offers choices, validates a command, reserves actors, walks to the activity anchor and resolves the timed task. The Go economy continues to validate receipts and owns both ledgers. Vite renders static HTML strings from the same typed Persian catalog used by browser modules.

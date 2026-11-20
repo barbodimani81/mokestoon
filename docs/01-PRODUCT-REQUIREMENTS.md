@@ -28,7 +28,7 @@ The product is a mobile-first web game that can be installed as a PWA. A player 
 
 ## 4. Target experience
 
-A player opens the game and immediately sees the complete apartment from above. The five friends are visible or are in a known interior location. Characters may sit, smoke, talk, rest, dance or perform light ambient actions. Requests appear when a friend needs something. The player taps a character or interactive object, chooses an action, and observes the character carry it out. Successful activities can award Faaz and F7 Score according to separate rules.
+A player opens the game and immediately sees the complete apartment from above. The five friends are visible or are in a known interior location. Characters may sit, smoke, talk, rest, dance or perform light ambient actions. Requests appear when a friend needs something. The player taps a character, taps a highlighted station, chooses an item in its Persian popup, and observes the character carry it out. Successful activities can award Faaz and F7 Score according to separate rules.
 
 As the player progresses, they unlock objects and activities such as balcony furniture, TV, PS4, Kinect, guitar, additional snacks, drinks, and music/vibe options. The apartment's physical structure stays the same. The room's lighting, soundtrack and character behavior can change with day/night and music mode.
 

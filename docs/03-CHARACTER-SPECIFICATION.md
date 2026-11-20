@@ -82,3 +82,9 @@ Do not conflate mood with activity. A happy character can be walking; an annoyed
 - Build animation states incrementally. First deliver idle + four-direction walk + interact; then signature actions; then group sequences.
 - Use approved source images only as visual reference. Do not commit private reference photos to a public repository unless the owner explicitly approves.
 - A sprite atlas must include metadata mapping stable animation IDs to frame ranges and frame durations.
+
+## Revision audit · 2026-11-20
+
+The temporary five-person sheets preserve the existing silhouettes and outfits. Displayed frames grew from 61–95 to 71–110 CSS pixels with the same foot origin and navigation footprint. The renderer selects gesture frames from actual tasks. Every friend has separate cigarette and IQOS poses, a tongue-out completion and the shared dance. Barbod carries his black bottle and jumps; Kavian has a separate moonwalk and works at purchased equipment; Mahan and Kavian can reserve a paired boxing session. Mahan’s raised arms, Parsa’s neutral friendly greeting during conversation and Parham’s alternating belly/raised-hand laugh are provisional drawings.
+
+D-004 covers final faces, clothing details including jacket branding, and owner approval of all poses. D-015 covers Parsa’s final greeting. Mahan’s high-energy modifier depends on D-014. The sunglasses, techno and hugging sequence is still gated by the event unlock. The live game does not expose that unlock.

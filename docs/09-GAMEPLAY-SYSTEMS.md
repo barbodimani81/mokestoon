@@ -41,7 +41,7 @@ Player intents outrank ambient choices. A higher-priority request/event can inte
 
 ## 5. Requests and patience
 
-Request lifecycle: pending → accepted → in progress → completed/failed; pending can expire; any active request may be cancelled by an approved event or invalidated target.
+Request lifecycle: pending → accepted → in progress → completed/failed, with optional stored output → cooling → ready → second command; pending can expire; any active request may be cancelled by an approved event or invalidated target.
 
 Patience is a bounded timer/value. It decreases according to configured request urgency and game mode. On expiry:
 1. Mark request expired.
@@ -125,3 +125,9 @@ Persist enough state to restore an interrupted session: game day/time, character
 ## 14. Tuning configuration
 
 Keep tunable values in typed config/catalog data: request durations, patience budgets, ambient weights, pathfinding retry limits, activity durations, reward keys, costs, party thresholds, music multipliers and event cooldowns. Provide sensible development defaults, but mark prices and reward values as unapproved until the owner confirms balance.
+
+## 2026-11-20 interaction and settlement
+
+Commands use one existing session and one request UUID through all stages. A physical anchor may have multiple safe approach points. Only a successful arrival starts the timer. A failed approach reoffers the interrupted request stage; a ready jelly remains available. A capped timer produces an expiry reaction and releases the character. Waiting for a stored item does not expire it. Reload resumes cooling from game ticks and reoffers accepted work. The guest WC has one reservation; queue gameplay remains a separately reviewed concept.
+
+Only terminal request actions enter the reward queue. Jelly preparation, storage and readiness never earn separate receipts. Development minimum for jelly includes preparation, storage, cooling and consumption. Individual smoke requests accept either configured option. Ambient work, a free-form station command and browsing the shop have no reward. The local economy validates ownership, eligible character/action, minimum and maximum duration, elapsed budget, cooldown, daily cap, event identity and request uniqueness. It does not independently replay client navigation. Production tuning and hardening remain release work.

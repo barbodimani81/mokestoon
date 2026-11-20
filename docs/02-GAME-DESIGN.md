@@ -12,7 +12,7 @@
 
 1. Friends perform ambient activities and generate requests.
 2. The player notices a request or chooses an activity.
-3. The player selects a character and target/action.
+3. The player taps the requesting character, then a highlighted station, then an item in its popup. Even a single valid item requires a choice.
 4. The character navigates to the target and performs the activity.
 5. The system resolves success, failure, interruption or expiry.
 6. Eligible events award Faaz and F7 Score separately.
@@ -21,6 +21,8 @@
 9. At night, friends become tired and settle into beds/sofa; a new in-game day can begin.
 
 The loop should be fun without requiring the player to click continuously. Ambient animations and social interactions fill gaps between requests.
+
+**Confirmed on 2026-11-20.** Parsa prepares jelly at the counter and carries it to the fridge. Cooling runs on the apartment clock. A ready indicator invites a second command at the food station to retrieve and eat it. Only eating closes the original reward event. Mahan asks to smoke, selects cigarette or IQOS at the balcony, walks there and finishes a bounded session. Seven station menus and candidate status are documented in 18.
 
 ## 3. Camera and spatial rules
 
@@ -49,7 +51,7 @@ Do not let ambient AI repeatedly cancel player commands. Use cooldowns and state
 A request contains:
 - `request_id`, `character_id`, `request_type`, optional `target_object_id`.
 - `created_at_game_time`, `expires_at_game_time` or patience budget.
-- `status`: pending, accepted, in_progress, completed, failed, expired, cancelled.
+- `status`: pending, accepted, in_progress, cooling, ready, completed, failed, expired, cancelled.
 - UI label/icon, urgency and a configured reward key.
 
 Examples: wants food, wants to smoke, wants to watch TV, wants to play PS4, needs the bathroom, asks for music/activity, asks for help cleaning. These are examples; exact request catalog is data-driven.

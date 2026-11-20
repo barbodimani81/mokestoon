@@ -1,4 +1,4 @@
-name: M0 foundation
+name: F7 verification
 on: [push, pull_request]
 permissions:
   contents: read
@@ -18,6 +18,6 @@ jobs:
           cache-dependency-path: apps/api/go.sum
       - run: go install -tags postgres github.com/golang-migrate/migrate/v4/cmd/migrate@v4.20.1
       - run: make install lint test integration build audit
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
         working-directory: apps/web
-      - run: make browser-test
+      - run: make browser-test playtest-test

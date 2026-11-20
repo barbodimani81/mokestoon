@@ -88,3 +88,7 @@ P1: progression, leaderboard, music/vibe, signature group event, essential mini-
 P2: extra ambient events, expanded catalogs, advanced party intensity, birthday endgame, cosmetics.
 
 Do not label a feature production-ready until the relevant acceptance tests pass.
+
+## Gameplay revision workstream · 2026-11-20
+
+Revision 17 updates the interaction acceptance gates for M2–M7. The prior one-click request path is superseded. The ordered work is local audit, station command foundation, jelly and balcony journeys, catalog review, Persian UI, character readability, Faaz settlement and purchases, character/event reconciliation and regression. See revision 18 for per-item status and the audit for evidence. Production deployment, final art and owner-gated unlocks remain separate milestones.

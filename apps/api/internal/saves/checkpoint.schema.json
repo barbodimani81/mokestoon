@@ -1,0 +1,228 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ticks",
+    "requestCount",
+    "nextRequest",
+    "dishes",
+    "clutter",
+    "seed",
+    "tvReady",
+    "ps4Ready",
+    "residents"
+  ],
+  "properties": {
+    "ticks": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000
+    },
+    "requestCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000
+    },
+    "nextRequest": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000
+    },
+    "dishes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "clutter": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "tvReady": {
+      "type": "boolean"
+    },
+    "ps4Ready": {
+      "type": "boolean"
+    },
+    "residents": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "barbod",
+        "kavian",
+        "mahan",
+        "parsa",
+        "parham"
+      ],
+      "properties": {
+        "barbod": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "position",
+            "fatigue",
+            "nextAmbient"
+          ],
+          "properties": {
+            "position": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "x",
+                "y"
+              ],
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": 6,
+                  "maximum": 1194
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 6,
+                  "maximum": 906
+                }
+              }
+            },
+            "fatigue": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "nextAmbient": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000000000
+            },
+            "reactionUntil": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000000000
+            }
+          }
+        },
+        "kavian": {
+          "$ref": "#/properties/residents/properties/barbod"
+        },
+        "mahan": {
+          "$ref": "#/properties/residents/properties/barbod"
+        },
+        "parsa": {
+          "$ref": "#/properties/residents/properties/barbod"
+        },
+        "parham": {
+          "$ref": "#/properties/residents/properties/barbod"
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "friend",
+        "activity",
+        "status",
+        "deadline"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "friend": {
+          "type": "string",
+          "enum": [
+            "barbod",
+            "kavian",
+            "mahan",
+            "parsa",
+            "parham"
+          ]
+        },
+        "activity": {
+          "type": "string",
+          "enum": [
+            "snack",
+            "dishes",
+            "clean",
+            "balcony",
+            "rest",
+            "chat",
+            "dance",
+            "tv",
+            "ps4",
+            "setup_tv",
+            "setup_ps4",
+            "jelly_prepare",
+            "jelly_store",
+            "jelly_eat",
+            "cigarette",
+            "iqos",
+            "guest_wc",
+            "music_play",
+            "music_quiet",
+            "boxing",
+            "moonwalk"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "accepted",
+            "in_progress",
+            "completed",
+            "expired",
+            "cancelled",
+            "failed",
+            "cooling",
+            "ready"
+          ]
+        },
+        "deadline": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000000000
+        },
+        "readyAt": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000000000
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "cooling",
+                  "ready"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "readyAt"
+            ],
+            "properties": {
+              "friend": {
+                "const": "parsa"
+              },
+              "activity": {
+                "const": "jelly_eat"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

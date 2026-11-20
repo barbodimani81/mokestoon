@@ -1,0 +1,170 @@
+{
+  "frameWidth": 114,
+  "frameHeight": 144,
+  "origin": [
+    0.5,
+    0.9583333333333334
+  ],
+  "animations": [
+    {
+      "action": "idle",
+      "direction": "south",
+      "firstFrame": 0,
+      "lastFrame": 3,
+      "frameMs": 360,
+      "loop": true
+    },
+    {
+      "action": "idle",
+      "direction": "north",
+      "firstFrame": 4,
+      "lastFrame": 7,
+      "frameMs": 360,
+      "loop": true
+    },
+    {
+      "action": "idle",
+      "direction": "east",
+      "firstFrame": 8,
+      "lastFrame": 11,
+      "frameMs": 360,
+      "loop": true
+    },
+    {
+      "action": "idle",
+      "direction": "west",
+      "firstFrame": 12,
+      "lastFrame": 15,
+      "frameMs": 360,
+      "loop": true
+    },
+    {
+      "action": "walk",
+      "direction": "south",
+      "firstFrame": 16,
+      "lastFrame": 19,
+      "frameMs": 125,
+      "loop": true
+    },
+    {
+      "action": "walk",
+      "direction": "north",
+      "firstFrame": 20,
+      "lastFrame": 23,
+      "frameMs": 125,
+      "loop": true
+    },
+    {
+      "action": "walk",
+      "direction": "east",
+      "firstFrame": 24,
+      "lastFrame": 27,
+      "frameMs": 125,
+      "loop": true
+    },
+    {
+      "action": "walk",
+      "direction": "west",
+      "firstFrame": 28,
+      "lastFrame": 31,
+      "frameMs": 125,
+      "loop": true
+    },
+    {
+      "action": "interact",
+      "direction": "south",
+      "firstFrame": 32,
+      "lastFrame": 35,
+      "frameMs": 220,
+      "loop": true
+    },
+    {
+      "action": "dance",
+      "direction": "south",
+      "firstFrame": 36,
+      "lastFrame": 39,
+      "frameMs": 185,
+      "loop": true
+    },
+    {
+      "action": "react",
+      "direction": "south",
+      "firstFrame": 40,
+      "lastFrame": 43,
+      "frameMs": 200,
+      "loop": true
+    },
+    {
+      "action": "rest",
+      "direction": "south",
+      "firstFrame": 44,
+      "lastFrame": 47,
+      "frameMs": 550,
+      "loop": true
+    },
+    {
+      "action": "smoke",
+      "direction": "south",
+      "firstFrame": 48,
+      "lastFrame": 51,
+      "frameMs": 320,
+      "loop": true
+    },
+    {
+      "action": "iqos",
+      "direction": "south",
+      "firstFrame": 52,
+      "lastFrame": 55,
+      "frameMs": 320,
+      "loop": true
+    },
+    {
+      "action": "carry",
+      "direction": "south",
+      "firstFrame": 56,
+      "lastFrame": 59,
+      "frameMs": 190,
+      "loop": true
+    },
+    {
+      "action": "eat",
+      "direction": "south",
+      "firstFrame": 60,
+      "lastFrame": 63,
+      "frameMs": 230,
+      "loop": true
+    },
+    {
+      "action": "happy",
+      "direction": "south",
+      "firstFrame": 64,
+      "lastFrame": 67,
+      "frameMs": 210,
+      "loop": true
+    },
+    {
+      "action": "boxing",
+      "direction": "south",
+      "firstFrame": 68,
+      "lastFrame": 71,
+      "frameMs": 185,
+      "loop": true
+    },
+    {
+      "action": "greet",
+      "direction": "south",
+      "firstFrame": 72,
+      "lastFrame": 75,
+      "frameMs": 350,
+      "loop": true
+    },
+    {
+      "action": "moonwalk",
+      "direction": "south",
+      "firstFrame": 76,
+      "lastFrame": 79,
+      "frameMs": 180,
+      "loop": true
+    }
+  ]
+}

@@ -35,7 +35,13 @@ Do not place private reference photographs in `runtime/` or publish them through
 
 ### Replacing an M0 preview tile
 
-`assets/manifests/characters.ts` currently declares a temporary letter tile for each stable character ID. To preview an approved sheet, place a uniformly sliced PNG under `assets/runtime/spritesheets/`. Use a lowercase filename containing letters, digits, underscores or hyphens. Keep the character ID and name, and replace its `art` field with a `spritesheet` entry. For example, a one-frame sheet with a 32 × 48 frame would use the following metadata. Set the actual dimensions, anchors and ranges from the approved sheet.
+All five friends have temporary, individually drawn sprites based on the supplied references and the written outfit specifications. The apartment and character preview load the same transparent PNGs from `assets/runtime/spritesheets/`. The manifest marks each sheet as `placeholder` until production art is approved. The 114 × 144 frames use curved outlines and antialiased facial details. The animation clips include directional idle and walk, interaction, rest, elbow-swing dance and a short character-specific reaction. The apartment picks clips from actual movement, task and request state. Reduced motion shows a still pose. The preview’s **Pose** selector plays the available clips.
+
+The checked-in sheets and frame manifest are sufficient to run the game. To edit the temporary pixel rigs, update `scripts/art/build-residents.py` and run `python3 scripts/art/build-residents.py` in a Python environment with Pillow and CairoSVG (requires Cairo). Only derived runtime artwork is served to clients.
+
+The apartment displays a frame at least 61 CSS pixels tall at phone scale. The placeholder manifest selects linear filtering so curved edges scale smoothly in the apartment and the pose preview. Artist-supplied pixel sheets default to nearest-neighbor filtering. Nameplates, request pictograms and furniture icons avoid nearby bodies. If friends gather too closely, the renderer separates their figures and draws short lines back to their simulated positions. A pending request adds its activity icon beside the friend’s name. The furniture icon, friend, request and corresponding labelled controls support selection.
+
+To preview an approved sheet, place a uniformly sliced PNG under `assets/runtime/spritesheets/`. Use a lowercase filename containing letters, digits, underscores or hyphens. Keep the character ID and name, and replace its `art` field with a `spritesheet` entry. For example, a one-frame sheet with a 32 × 48 frame would use the following metadata. Set the actual dimensions, anchors and ranges from the approved sheet.
 
 ```ts
 art: {
@@ -50,7 +56,7 @@ art: {
 }
 ```
 
-The loader uses zero-based inclusive frame ranges, normalized origins and stable keys such as `barbod.idle.south`. The preview plays the south-facing idle clip. Use the manifest's four direction values for additional clips. Invalid metadata or a missing declared sheet produces a preview error. Rebuild after changing an entry. The preview starts with audio disabled and loads no tracks.
+The loader uses zero-based inclusive frame ranges, normalized origins and stable keys such as `barbod.idle.south`. The preview opens with the south-facing idle clip. Use the manifest's four direction values for additional clips. Invalid metadata or a missing declared sheet produces a preview error. Rebuild after changing an entry. The preview starts with audio disabled and loads no tracks.
 
 Minimum first pass per character:
 - idle animation;
@@ -95,6 +101,14 @@ Audio categories:
 
 Provide independent master/music/SFX volume controls and mute. Normalize loudness to avoid abrupt jumps. Avoid overlapping multiple music tracks when an event override starts. Restore the prior track after event completion.
 
+### Apartment playback
+
+The built-in loop **Hall Lights** is an original F7 composition with electric keys, bass, kick and hats. It plays for 16 bars at 104 BPM. Its stable ID, title, local asset and request chime pitches are in `assets/manifests/audio.ts`. The runtime MP3 is under `assets/runtime/audio/`. To re-render the score, run `node assets/source/audio/hall-lights.mjs` with FFmpeg on the path. Normal local development uses the checked-in recording.
+
+The apartment unlocks its Web Audio mixer on a map or friend-control gesture, or through **Start sound**. Once unlocked, it fetches the loop on demand, decodes it once and routes one looping source through the music gain. Short synthesized chimes have a separate gain and respond to new, completed and expired friend requests. If a request is already pending at activation, it rings once. The visible request text, icons and timer remain available during silent play.
+
+**Sound settings** exposes master, music and alert levels and mute. Preferences are device-local. Hiding the page suspends playback. A missing track can be retried from the panel while gameplay and alerts continue.
+
 ## 8. Personal playlist import
 
 **Default for first release:** user selects audio files from their own device; file data stays local to that browser/device and is not uploaded to the server. Store playlist metadata and references locally where browser support permits. Explain that local files may need to be reselected after browser storage is cleared or on another device. Confirm this behavior with the owner before implementation.
@@ -115,3 +129,9 @@ Song/artist names in the design docs are reference preferences, not permission t
 - Measure atlas sizes and initial download weight.
 - Ensure audio begins only after user gesture where browser policy requires it.
 - Include license/source metadata for every bundled third-party asset.
+
+## Persian text and temporary interaction art
+
+The self-hosted Arabic-script subset of Vazirmatn Variable comes from @fontsource-variable/vazirmatn 5.3.0. The WOFF2 and its SIL Open Font License are in apps/web/public/fonts. English debug IDs stay out of the HUD. The original track is displayed as چراغ‌های هال. Station music commands pause or restart that loop while preserving alert and master settings.
+
+The existing generator scripts/art/build-residents.py writes 114 × 144 frames into eight-column temporary atlases. Manifest frame IDs remain flat row-major indices. Carrying, eating, smoking, colored IQOS, joy, greeting, moonwalk and paired boxing use separate clips. These are replaceable provisional assets. Rebuild with the project's CairoSVG/Pillow environment and inspect all five at portrait and desktop FIT scale.

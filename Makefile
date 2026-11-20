@@ -9,7 +9,7 @@ MIGRATE := $(LOCAL) migrate -path apps/api/migrations -database 'postgres:///?se
 help:
 	@echo "Setup: make init install dev-deps migrate-up"
 	@echo "Run in separate terminals: make api-run | make web-dev"
-	@echo "Checks: make fmt lint test integration build browser-test audit"
+	@echo "Checks: make fmt lint test integration build browser-test playtest-test audit"
 
 init:
 	@sh scripts/init-local.sh
@@ -24,6 +24,13 @@ dev-deps:
 compose-down:
 	$(LOCAL) $(COMPOSE) down
 
+.PHONY: accounts-deps accounts-api
+accounts-deps:
+	$(LOCAL) $(COMPOSE) up -d --wait db mailpit
+
+accounts-api:
+	$(LOCAL) sh scripts/accounts-api.sh
+
 api-run:
 	$(LOCAL) sh -c 'cd apps/api && exec go run ./cmd/api'
 
@@ -37,7 +44,7 @@ migrate-down:
 	$(MIGRATE) down 1
 
 fmt:
-	cd apps/api && go fmt ./...
+	cd apps/api && gofmt -w .
 	$(WEB) run fmt
 
 lint:
@@ -62,3 +69,7 @@ build:
 
 browser-test:
 	$(WEB) exec -- playwright test --config apps/web/playwright.config.ts
+
+.PHONY: playtest-test
+playtest-test: build
+	bash scripts/integration.sh --browser

@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/barbodimani81/mokestoon/apps/api/internal/config"
+	"github.com/barbodimani81/mokestoon/apps/api/internal/economy"
 	"github.com/barbodimani81/mokestoon/apps/api/internal/health"
 	httpapi "github.com/barbodimani81/mokestoon/apps/api/internal/http"
 	"github.com/barbodimani81/mokestoon/apps/api/internal/platform"
@@ -37,12 +38,16 @@ func run(ctx context.Context) error {
 		return err
 	}
 	defer db.Close()
+	handler, err := httpapi.Playtest(httpapi.Router(health.Probe{DB: db}), economy.Store{DB: db, Catalog: economy.PlaytestCatalog()}, addr)
+	if err != nil {
+		return err
+	}
 	ln, err := net.Listen("tcp", addr)
 	if err != nil {
 		return err
 	}
 	srv := &http.Server{
-		Handler:           httpapi.Router(health.Probe{DB: db}),
+		Handler:           handler,
 		ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second,
 		WriteTimeout: 10 * time.Second, IdleTimeout: 60 * time.Second,
 	}

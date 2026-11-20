@@ -1,0 +1,64 @@
+{
+  "reward_faaz": 5,
+  "reward_points": 3,
+  "daily_limit": 60,
+  "cooldown_ticks": 90,
+  "character_requests": {
+    "barbod": [
+      "dance",
+      "snack"
+    ],
+    "kavian": [
+      "dishes",
+      "clean",
+      "snack"
+    ],
+    "mahan": [
+      "rest",
+      "dance",
+      "snack",
+      "cigarette",
+      "iqos"
+    ],
+    "parsa": [
+      "balcony",
+      "tv",
+      "jelly_eat"
+    ],
+    "parham": [
+      "snack",
+      "dance",
+      "ps4",
+      "tv"
+    ]
+  },
+  "minimum_ticks": {
+    "snack": 25,
+    "dishes": 55,
+    "clean": 45,
+    "balcony": 55,
+    "rest": 60,
+    "dance": 45,
+    "tv": 60,
+    "ps4": 70,
+    "jelly_eat": 107,
+    "cigarette": 36,
+    "iqos": 36
+  },
+  "unlocks": [
+    {
+      "id": "object.tv",
+      "name": "TV",
+      "cost_faaz": 10,
+      "prerequisites": []
+    },
+    {
+      "id": "activity.ps4",
+      "name": "PS4",
+      "cost_faaz": 15,
+      "prerequisites": [
+        "object.tv"
+      ]
+    }
+  ]
+}

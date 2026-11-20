@@ -38,6 +38,284 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/leaderboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** All-time F7 Score rankings within the viewer's authorized audience */
+        get: operations["getLeaderboard"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["getAccountProfile"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/register": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["requestRegistration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/verify-email": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["verifyEmail"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/password/forgot": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["requestPasswordReset"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/password/reset": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["resetPassword"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["login"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/refresh": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["rotateSession"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/logout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["logout"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/catalog/unlocks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List enabled development unlocks */
+        get: operations["listUnlocks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/development/session": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start or reuse a loopback-only development session */
+        post: operations["startPlaytest"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/players/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Read authenticated player totals and ownership */
+        get: operations["getPlayer"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["changeDisplayName"];
+        trace?: never;
+    };
+    "/players/me/wallet/transactions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["getWalletHistory"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/players/me/unlocks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["getOwnedUnlocks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/players/me/save": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["getPlayerSave"];
+        put: operations["updatePlayerSave"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/purchases": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Buy an unlock with Faaz */
+        post: operations["buyUnlock"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/game-events/batch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Validate a bounded batch of completed requests */
+        post: operations["syncEvents"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -54,8 +332,195 @@ export interface components {
             /** @enum {string} */
             status: "unavailable";
         };
+        WalletTransaction: {
+            /** Format: uuid */
+            event_id: string;
+            /** @enum {string} */
+            event_type: "request_completed" | "purchase";
+            reason: string;
+            amount_faaz: number;
+            /** Format: date-time */
+            created_at: string;
+        };
+        WalletHistory: {
+            transactions: components["schemas"]["WalletTransaction"][];
+            /** Format: uuid */
+            next_cursor?: string;
+        };
+        OwnedUnlocks: {
+            unlocks: string[];
+        };
+        ApartmentCheckpoint: components["schemas"]["checkpoint.schema"];
+        SaveUpdate: {
+            expected_version: number;
+            /** @enum {integer} */
+            schema_version: 1;
+            payload: components["schemas"]["checkpoint.schema"];
+        };
+        PlayerSave: {
+            version: number;
+            /** @enum {integer} */
+            schema_version: 1;
+            /** Format: date-time */
+            updated_at: string;
+            payload: components["schemas"]["checkpoint.schema"];
+        };
+        Empty: Record<string, never>;
+        Error: {
+            error: {
+                code: string;
+                message: string;
+                /** Format: uuid */
+                request_id: string;
+                details: string[];
+            };
+        };
+        Unlock: {
+            id: string;
+            name: string;
+            cost_faaz: number;
+            prerequisites: string[];
+        };
+        Standing: {
+            rank: number;
+            display_name: string | null;
+            f7_score: number;
+        };
+        Standings: {
+            entries: components["schemas"]["Standing"][];
+            next_cursor?: string;
+        };
+        AccountEmail: {
+            /** Format: email */
+            email: string;
+        };
+        AccountLogin: {
+            /** Format: email */
+            email: string;
+            /** Format: password */
+            password: string;
+        };
+        CompleteEmailChallenge: {
+            token: string;
+            /** Format: password */
+            password: string;
+        };
+        ProfileUpdate: {
+            display_name: string;
+        };
+        AccountProfile: {
+            display_name: string;
+            /** Format: uuid */
+            player_id: string;
+            /** Format: email */
+            email: string;
+        };
+        Catalog: {
+            development: boolean;
+            email_accounts?: boolean;
+            unlocks: components["schemas"]["Unlock"][];
+        };
+        Player: {
+            /** Format: uuid */
+            player_id: string;
+            faaz: number;
+            f7_score: number;
+            unlocks: string[];
+        };
+        PurchaseResult: components["schemas"]["Player"] & {
+            /** Format: uuid */
+            purchase_id: string;
+            unlock_id: string;
+            /** Format: date-time */
+            purchased_at: string;
+        };
+        Purchase: {
+            /** Format: uuid */
+            idempotency_key: string;
+            unlock_id: string;
+        };
+        RequestCompletion: {
+            /** Format: uuid */
+            event_id: string;
+            /** Format: uuid */
+            request_id: string;
+            /** @enum {string} */
+            character_id: "barbod" | "kavian" | "mahan" | "parsa" | "parham";
+            activity_id: string;
+            duration_ticks: number;
+        };
+        EventBatch: {
+            events: components["schemas"]["RequestCompletion"][];
+        };
+        BatchResult: {
+            player: components["schemas"]["Player"];
+            outcomes: {
+                /** Format: uuid */
+                event_id: string;
+                /** @enum {string} */
+                status: "accepted" | "rejected" | "conflict";
+                /** @description Original posted Faaz for this receipt. Zero for unsuccessful outcomes. */
+                amount_faaz: number;
+            }[];
+        };
+        barbod: {
+            position: {
+                x: number;
+                y: number;
+            };
+            fatigue: number;
+            nextAmbient: number;
+            reactionUntil?: number;
+        };
+        "checkpoint.schema": {
+            ticks: number;
+            requestCount: number;
+            nextRequest: number;
+            dishes: number;
+            clutter: number;
+            seed: number;
+            tvReady: boolean;
+            ps4Ready: boolean;
+            residents: {
+                barbod: {
+                    position: {
+                        x: number;
+                        y: number;
+                    };
+                    fatigue: number;
+                    nextAmbient: number;
+                    reactionUntil?: number;
+                };
+                kavian: components["schemas"]["barbod"];
+                mahan: components["schemas"]["barbod"];
+                parsa: components["schemas"]["barbod"];
+                parham: components["schemas"]["barbod"];
+            };
+            request?: {
+                /** Format: uuid */
+                id: string;
+                /** @enum {string} */
+                friend: "barbod" | "kavian" | "mahan" | "parsa" | "parham";
+                /** @enum {string} */
+                activity: "snack" | "dishes" | "clean" | "balcony" | "rest" | "chat" | "dance" | "tv" | "ps4" | "setup_tv" | "setup_ps4" | "jelly_prepare" | "jelly_store" | "jelly_eat" | "cigarette" | "iqos" | "guest_wc" | "music_play" | "music_quiet" | "boxing" | "moonwalk";
+                /** @enum {string} */
+                status: "pending" | "accepted" | "in_progress" | "completed" | "expired" | "cancelled" | "failed" | "cooling" | "ready";
+                deadline: number;
+                readyAt?: number;
+            } & unknown;
+        };
     };
-    responses: never;
+    responses: {
+        /** @description Request rejected or service unavailable */
+        Failure: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": components["schemas"]["Error"];
+            };
+        };
+    };
     parameters: never;
     requestBodies: never;
     headers: never;
@@ -110,6 +575,544 @@ export interface operations {
                     "application/json": components["schemas"]["Unavailable"];
                 };
             };
+        };
+    };
+    getLeaderboard: {
+        parameters: {
+            query?: {
+                scope?: "group" | "global";
+                group_id?: string;
+                period?: "all_time";
+                limit?: number;
+                cursor?: string;
+            };
+            header?: {
+                "X-F7-Player"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Authorized standings */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Standings"];
+                };
+            };
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            409: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    getAccountProfile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Verified private account profile */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountProfile"];
+                };
+            };
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    requestRegistration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountEmail"];
+            };
+        };
+        responses: {
+            /** @description Request accepted */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    verifyEmail: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompleteEmailChallenge"];
+            };
+        };
+        responses: {
+            /** @description Session cookies updated */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    requestPasswordReset: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountEmail"];
+            };
+        };
+        responses: {
+            /** @description Request accepted */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    resetPassword: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompleteEmailChallenge"];
+            };
+        };
+        responses: {
+            /** @description Session cookies updated */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    login: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountLogin"];
+            };
+        };
+        responses: {
+            /** @description Session cookies updated */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    rotateSession: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Empty"];
+            };
+        };
+        responses: {
+            /** @description Session cookies updated */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    logout: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Empty"];
+            };
+        };
+        responses: {
+            /** @description Session cookies updated */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            429: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    listUnlocks: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Catalog"];
+                };
+            };
+            403: components["responses"]["Failure"];
+        };
+    };
+    startPlaytest: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Empty"];
+            };
+        };
+        responses: {
+            /** @description Success */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    getPlayer: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Player"];
+                };
+            };
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    changeDisplayName: {
+        parameters: {
+            query?: never;
+            header: {
+                "X-F7-Player": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProfileUpdate"];
+            };
+        };
+        responses: {
+            /** @description Display name updated */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            409: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    getWalletHistory: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Authenticated player data */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WalletHistory"];
+                };
+            };
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    getOwnedUnlocks: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Authenticated player data */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OwnedUnlocks"];
+                };
+            };
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    getPlayerSave: {
+        parameters: {
+            query?: never;
+            header: {
+                "X-F7-Player": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Versioned apartment checkpoint */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlayerSave"];
+                };
+            };
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            404: components["responses"]["Failure"];
+            409: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    updatePlayerSave: {
+        parameters: {
+            query?: never;
+            header: {
+                "X-F7-Player": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SaveUpdate"];
+            };
+        };
+        responses: {
+            /** @description Versioned apartment checkpoint */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlayerSave"];
+                };
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            409: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    buyUnlock: {
+        parameters: {
+            query?: never;
+            header: {
+                /** @description Reject replay after the authenticated player changes */
+                "X-F7-Player": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Purchase"];
+            };
+        };
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PurchaseResult"];
+                };
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            409: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
+        };
+    };
+    syncEvents: {
+        parameters: {
+            query?: never;
+            header: {
+                /** @description Reject replay after the authenticated player changes */
+                "X-F7-Player": string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EventBatch"];
+            };
+        };
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BatchResult"];
+                };
+            };
+            400: components["responses"]["Failure"];
+            401: components["responses"]["Failure"];
+            403: components["responses"]["Failure"];
+            409: components["responses"]["Failure"];
+            415: components["responses"]["Failure"];
+            422: components["responses"]["Failure"];
+            503: components["responses"]["Failure"];
         };
     };
 }

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="referrer" content="no-referrer" />
+  <title>{{Account}} · F7</title>
+</head>
+<body class="account-page">
+  <header><strong class="wordmark" dir="ltr">F7</strong><a href="./">{{Apartment}}</a></header>
+  <main>
+    <h1>{{Account}}</h1>
+    <p id="account-status" role="status">{{CheckingYourAccount}}</p>
+    <form id="account-form" hidden>
+      <label id="email-field">{{Email}} <input name="email" dir="ltr" type="email" required maxlength="254" autocomplete="email" /></label>
+      <label id="password-field">{{Password}} <input name="password" type="password" required maxlength="256" autocomplete="current-password" /></label>
+      <button type="submit">{{SignIn}}</button>
+    </form>
+    <form id="profile-form" hidden>
+      <label>{{DisplayName}} <input name="display_name" maxlength="32" autocomplete="nickname" /></label>
+      <button type="submit">{{SaveDisplayName}}</button>
+    </form>
+    <div id="account-actions"></div>
+    <details id="rankings" hidden>
+      <summary>{{FriendRankings}}</summary>
+      <p data-message aria-live="polite"></p>
+      <table hidden><thead><tr><th>{{Rank}}</th><th>{{Player}}</th><th>{{F7Score}}</th></tr></thead><tbody></tbody></table>
+      <button type="button" hidden></button>
+    </details>
+  </main>
+  <script type="module" src="/src/app/account.ts"></script>
+</body>
+</html>

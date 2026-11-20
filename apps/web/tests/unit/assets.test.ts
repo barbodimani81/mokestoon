@@ -13,7 +13,7 @@ test("the manifest identifies all five friends by stable ID", () => {
   for (const id of characterIds) {
     const asset = characters[id];
     assert.ok(asset.name.length > 0);
-    if (asset.art.kind === "spritesheet") validateSheet(asset.art);
+    validateSheet(asset.art);
   }
 });
 
@@ -42,11 +42,13 @@ test("invalid files, dimensions, anchors and clips fail before loading", () => {
   for (const changes of [
     { file: "../source/person.png" },
     { frameWidth: 0 },
+    { sampling: "unknown" },
     { origin: [1.1, 0] },
     { animations: [] },
     { animations: [...sheet.animations, ...sheet.animations] },
     ...[
       { frameMs: 0 },
+      { direction: "diagonal" },
       { firstFrame: -1 },
       { firstFrame: 1, lastFrame: 0 },
     ].map((fields) => ({
